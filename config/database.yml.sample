@@ -1,0 +1,16 @@
+default: &default
+  username: postgres
+  password:
+  adapter: postgresql
+  encoding: unicode
+  host: 'localhost'
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: storm_development
+
+
+# for heroku
+production:
+  url: <%= ENV['DATABASE_URL'] %>
